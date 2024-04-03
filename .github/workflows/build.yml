@@ -31,6 +31,7 @@ jobs:
 
       - name: Build, and push
         run: |
+          rm -rf * .git .github
           git clone -b alpine --single-branch https://github.com/dopaemon/Docker.git ./
           docker build . --tag ${{ steps.string.outputs.lowercase }}
           docker push ${{ steps.string.outputs.lowercase }}
